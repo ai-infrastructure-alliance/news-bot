@@ -15,5 +15,5 @@ heroku buildpacks:add heroku/python
 ### Deploy on Heroku
 
 ```
-git push heroku master
+git push heroku main
 ```

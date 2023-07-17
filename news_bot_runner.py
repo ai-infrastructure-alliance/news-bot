@@ -1,6 +1,4 @@
 import os, telebot
-from langchain import OpenAI
-import guidance
 
 from news_db_airtable import NewsLinksDB
 from news_bot import NewsBot
@@ -16,10 +14,6 @@ NEWS_CHAT_ID = -1001931789859
 AIRTABLE_API_KEY = os.environ['AIRTABLE_API_KEY']
 BASE_ID = 'appEYfGFXlZxhcmSy'
 TABLE_NAME = 'Weekly newsletter'
-
-# LLMs
-llm = OpenAI(temperature=0, openai_api_key=OPEN_AI_KEY)
-gpt = guidance.llms.OpenAI(model="gpt-3.5-turbo", token=OPEN_AI_KEY)
 
 # DB
 news_links_db = NewsLinksDB(AIRTABLE_API_KEY, BASE_ID, TABLE_NAME)
