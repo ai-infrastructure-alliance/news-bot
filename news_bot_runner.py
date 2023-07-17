@@ -8,7 +8,6 @@ load_dotenv()
 
 # Tokens
 BOT_TOKEN_NEWS = os.environ.get('BOT_TOKEN_NEWS')
-OPEN_AI_KEY = os.environ.get('OPEN_AI_KEY')
 NEWS_CHAT_ID = -1001931789859
 
 AIRTABLE_API_KEY = os.environ['AIRTABLE_API_KEY']
