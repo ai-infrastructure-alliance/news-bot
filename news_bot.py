@@ -60,7 +60,8 @@ The chat id is {message.chat.id}.
     else:
       self.bot.reply_to(message,
                         "Sorry, you are not authorized to use the bot.")
-      print(f"[News] Unauthorized access from {message.from_user.username}.")
+      print(f"""[News] Unauthorized access from {message.from_user.username} 
+             in {message.chat.id}, while I expect {self.chat_id}.""")
 
   def delete(self, message):
     if message.chat.id == self.chat_id:
