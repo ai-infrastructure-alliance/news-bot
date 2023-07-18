@@ -47,7 +47,7 @@ The chat id is {message.chat.id}.
     self.bot.send_message(message.chat.id, "All links are sent.")
 
   def get_fresh_news(self, message):
-    if message.chat.id == self.chat_id:
+    if str(message.chat.id) == str(self.chat_id):
       framestart = datetime.now() - timedelta(days=7)
       news = self.linksdb.retrieve_from(framestart)
       if news:
@@ -64,7 +64,7 @@ The chat id is {message.chat.id}.
              in {message.chat.id}, while I expect {self.chat_id}.""")
 
   def delete(self, message):
-    if message.chat.id == self.chat_id:
+    if str(message.chat.id) == str(self.chat_id):
       if message.reply_to_message:
         reply_message = message.reply_to_message
         if reply_message.text:
@@ -82,10 +82,11 @@ The chat id is {message.chat.id}.
     else:
       self.bot.reply_to(message,
                         "Sorry, you are not authorized to use the bot.")
-      print(f"[News] Unauthorized access from {message.from_user.username}.")
+      print(f"""[News] Unauthorized access from {message.from_user.username} 
+             in {message.chat.id}, while I expect {self.chat_id}.""")
 
   def read_any(self, message):
-    if message.chat.id == self.chat_id:
+    if str(message.chat.id) == str(self.chat_id):
       input_text = message.text
       url_match = re.search(regex_pattern, input_text)
       if url_match:
@@ -107,10 +108,11 @@ The chat id is {message.chat.id}.
     else:
       self.bot.reply_to(message,
                         "Sorry, you are not authorized to use the bot.")
-      print(f"[News] Unauthorized access from {message.from_user.username}.")
+      print(f"""[News] Unauthorized access from {message.from_user.username} 
+             in {message.chat.id}, while I expect {self.chat_id}.""")
 
   def stats(self, message):
-    if message.chat.id == self.chat_id:
+    if str(message.chat.id) == str(self.chat_id):
       news = self.linksdb.get_all()
       text = f"""Current Frame stats:
 *Number of news in DB*: {len(news)}
@@ -121,7 +123,8 @@ The chat id is {message.chat.id}.
     else:
       self.bot.reply_to(message,
                         "Sorry, you are not authorized to use the bot.")
-      print(f"[News] Unauthorized access from {message.from_user.username}.")
+      print(f"""[News] Unauthorized access from {message.from_user.username} 
+             in {message.chat.id}, while I expect {self.chat_id}.""")
 
   def clean_url(self, url):
     parsed_url = urlparse(url)
