@@ -23,6 +23,8 @@ Simply send messages with links in this chat. I also accept comments.
 Use */stats* to check the statistics of the bot.
 Use */fresh* to get a list of recent links.
 Use */help* to get a list of commands.
+
+The chat id is {message.chat.id}.
 """
     self.bot.reply_to(message, markdown, parse_mode="Markdown")
     print(f"[News] Info message is sent to {message.from_user.first_name}.")

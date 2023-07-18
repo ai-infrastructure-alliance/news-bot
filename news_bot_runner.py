@@ -8,10 +8,10 @@ load_dotenv()
 
 # Tokens
 BOT_TOKEN_NEWS = os.environ.get('BOT_TOKEN_NEWS')
-NEWS_CHAT_ID = -1001931789859
+NEWS_CHAT_ID = os.environ.get('NEWS_CHAT_ID')
 
 AIRTABLE_API_KEY = os.environ['AIRTABLE_API_KEY']
-BASE_ID = 'appEYfGFXlZxhcmSy'
+BASE_ID = os.environ['BASE_ID']
 TABLE_NAME = 'Weekly newsletter'
 
 # DB
